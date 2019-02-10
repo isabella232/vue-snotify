@@ -39,13 +39,17 @@ $snotify-prompt-color: #e0f2f1 !default;
 .snotifyToast {
   display: block;
   cursor: pointer;
-  background-color: $snotify-simple-bg;
   height: 100%;
   margin: 5px;
   opacity: 0;
-  border-radius: 5px;
-  overflow: hidden;
+  position: relative;
   pointer-events: auto;
+
+  &__container {
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: $snotify-simple-bg;
+  }
 
   &--in {
     animation-name: appear;
