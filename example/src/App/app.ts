@@ -8,7 +8,7 @@ import './app.scss';
     template: require('./app.html')
 })
 export class App extends Vue {
-  style = 'material';
+  style = 'bubble';
   title = 'Snotify title!';
   body = 'Lorem ipsum dolor sit amet!';
   timeout = 3000;

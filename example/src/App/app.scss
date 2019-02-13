@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
+.bubble {
+  @import "~vue-snotify/styles/bubble";
+}
 .material {
   @import "~vue-snotify/styles/material";
 }
