@@ -1,0 +1,232 @@
+$snotify-simple-bg: linear-gradient(to right, #6442e1, #714afe) !default;
+$snotify-simple-progressBar: #452c99 !default;
+$snotify-simple-progressBarPercentage: #5235b7 !default;
+$snotify-simple-border-right: #6442e1 !default;
+$snotify-simple-border-left: #714afe !default;
+
+$snotify-success-bg: linear-gradient(to right, #0fbaac, #00bf86) !default;
+$snotify-success-progressBar: #047e66 !default;
+$snotify-success-progressBarPercentage: #058e73 !default;
+$snotify-success-border-right: #0fbaac !default;
+$snotify-success-border-left: #00bf86 !default;
+
+$snotify-warning-bg: linear-gradient(to right, #e97c00, #c46400) !default;
+$snotify-warning-progressBar: #8f4a00 !default;
+$snotify-warning-progressBarPercentage: #a35300 !default;
+$snotify-warning-border-right: #e97c00 !default;
+$snotify-warning-border-left: #c46400 !default;
+
+$snotify-error-bg: linear-gradient(to right, #b81252, #d61a5e) !default;
+$snotify-error-progressBar: #880e3d !default;
+$snotify-error-progressBarPercentage: #9b1045 !default;
+$snotify-error-border-right: #b81252 !default;
+$snotify-error-border-left: #d61a5e !default;
+
+.snotifyToast {
+  display: block;
+  cursor: pointer;
+  height: 100%;
+  margin: 10px;
+  opacity: 0;
+  position: relative;
+  pointer-events: auto;
+
+  &__container {
+    overflow: hidden;
+    border-radius: 20px;
+    background: $snotify-simple-bg;
+    box-shadow: 0 10px 20px 0 rgba(8, 3, 40, .45);
+
+    &::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 20px;
+      position: absolute;
+      bottom: 20px;
+      z-index: 1;
+      transition: all 400ms ease-in-out;
+    }
+  }
+
+  &--in {
+    animation-name: appear;
+  }
+
+  &--out {
+    animation-name: disappear;
+  }
+
+  &__inner {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 20;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  &__progressBar {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: $snotify-simple-progressBar;
+
+    &__percentage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 6px;
+      background-color: $snotify-simple-progressBarPercentage;
+      max-width: 100%;
+    }
+  }
+
+  &__body {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 700;
+
+    & + .snotifyToast__body {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  }
+}
+
+.snotifyToast-show {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.snotifyToast-remove {
+  max-height: 0;
+  overflow: hidden;
+  transform: translate(0, 50%);
+  opacity: 0;
+}
+
+.fadeOutRight {
+  animation-name: fadeOutRight;
+}
+
+/***************
+ ** Modifiers **
+ **************/
+
+.snotify-success {
+  background: $snotify-success-bg;
+
+  .snotifyToast__progressBar {
+    background-color: $snotify-success-progressBar;
+  }
+
+  .snotifyToast__progressBar__percentage {
+    background-color: $snotify-success-progressBarPercentage;
+  }
+}
+
+.snotify-warning {
+  background: $snotify-warning-bg;
+
+  .snotifyToast__progressBar {
+    background-color: $snotify-warning-progressBar;
+  }
+
+  .snotifyToast__progressBar__percentage {
+    background-color: $snotify-warning-progressBarPercentage;
+  }
+}
+
+.snotify-error {
+  background: $snotify-error-bg;
+
+  .snotifyToast__progressBar {
+    background-color: $snotify-error-progressBar;
+  }
+
+  .snotifyToast__progressBar__percentage {
+    background-color: $snotify-error-progressBarPercentage;
+  }
+}
+
+.snotify-prompt {
+  .snotifyToast__title {
+    margin-bottom: 0;
+  }
+}
+
+.snotify-rightTop,
+.snotify-rightCenter,
+.snotify-rightBottom {
+  .snotifyToast__container {
+    &::before {
+      left: 20px;
+      border-right: 20px solid $snotify-simple-border-right;
+      border-bottom-right-radius: 100%;
+    }
+
+    &.snotify-success::before {
+      border-right-color: $snotify-success-border-right;
+    }
+
+    &.snotify-warning::before {
+      border-right-color: $snotify-warning-border-right;
+    }
+
+    &.snotify-error::before {
+      border-right-color: $snotify-error-border-right;
+    }
+  }
+
+  .snotifyToast.animated:first-child {
+    .snotifyToast__container {
+      &::before {
+        left: -10px;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.snotify-leftTop,
+.snotify-leftCenter,
+.snotify-leftBottom {
+  .snotifyToast__container {
+    &::before {
+      right: 20px;
+      border-left: 20px solid $snotify-simple-border-left;
+      border-bottom-left-radius: 100%;
+    }
+
+    &.snotify-success::before {
+      border-left-color: $snotify-success-border-left;
+    }
+
+    &.snotify-warning::before {
+      border-left-color: $snotify-warning-border-left;
+    }
+
+    &.snotify-error::before {
+      border-left-color: $snotify-error-border-left;
+    }
+  }
+  .snotifyToast.animated:first-child {
+    .snotifyToast__container {
+      &::before {
+        right: -10px;
+        bottom: 0;
+      }
+    }
+  }
+}
