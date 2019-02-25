@@ -339,7 +339,7 @@
       width: 10px;
       height: 20px;
       position: absolute;
-      bottom: 20px;
+      top: 20px;
       z-index: 1;
       -webkit-transition: all 400ms ease-in-out;
       transition: all 400ms ease-in-out; }
@@ -448,7 +448,7 @@
 .snotify-rightBottom .snotifyToast__container::before {
   left: 20px;
   border-right: 20px solid #6442e1;
-  border-bottom-right-radius: 100%; }
+  border-top-right-radius: 100%; }
 
 .snotify-rightTop .snotifyToast__container.snotify-success::before,
 .snotify-rightCenter .snotifyToast__container.snotify-success::before,
@@ -469,14 +469,14 @@
 .snotify-rightCenter .snotifyToast.animated:first-child .snotifyToast__container::before,
 .snotify-rightBottom .snotifyToast.animated:first-child .snotifyToast__container::before {
   left: -10px;
-  bottom: 0; }
+  top: 0; }
 
 .snotify-leftTop .snotifyToast__container::before,
 .snotify-leftCenter .snotifyToast__container::before,
 .snotify-leftBottom .snotifyToast__container::before {
   right: 20px;
   border-left: 20px solid #714afe;
-  border-bottom-left-radius: 100%; }
+  border-top-left-radius: 100%; }
 
 .snotify-leftTop .snotifyToast__container.snotify-success::before,
 .snotify-leftCenter .snotifyToast__container.snotify-success::before,
@@ -497,7 +497,7 @@
 .snotify-leftCenter .snotifyToast.animated:first-child .snotifyToast__container::before,
 .snotify-leftBottom .snotifyToast.animated:first-child .snotifyToast__container::before {
   right: -10px;
-  bottom: 0; }
+  top: 0; }
 
 .snotifyToast__input {
   position: relative;
