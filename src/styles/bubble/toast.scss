@@ -43,7 +43,7 @@ $snotify-error-border-left: #d61a5e !default;
       width: 10px;
       height: 20px;
       position: absolute;
-      bottom: 20px;
+      top: 20px;
       z-index: 1;
       transition: all 400ms ease-in-out;
     }
@@ -173,7 +173,7 @@ $snotify-error-border-left: #d61a5e !default;
     &::before {
       left: 20px;
       border-right: 20px solid $snotify-simple-border-right;
-      border-bottom-right-radius: 100%;
+      border-top-right-radius: 100%;
     }
 
     &.snotify-success::before {
@@ -193,7 +193,7 @@ $snotify-error-border-left: #d61a5e !default;
     .snotifyToast__container {
       &::before {
         left: -10px;
-        bottom: 0;
+        top: 0;
       }
     }
   }
@@ -206,7 +206,7 @@ $snotify-error-border-left: #d61a5e !default;
     &::before {
       right: 20px;
       border-left: 20px solid $snotify-simple-border-left;
-      border-bottom-left-radius: 100%;
+      border-top-left-radius: 100%;
     }
 
     &.snotify-success::before {
@@ -225,7 +225,7 @@ $snotify-error-border-left: #d61a5e !default;
     .snotifyToast__container {
       &::before {
         right: -10px;
-        bottom: 0;
+        top: 0;
       }
     }
   }
